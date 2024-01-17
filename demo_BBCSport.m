@@ -9,7 +9,7 @@ X{2} = X2;
 for i = 1:2 
     X{i} = X{i}./repmat(sqrt(sum(X{i}.^2,1)),size(X{i},1),1);
 end
-%调参完成
+
 NMI_all = [];
 ACC_all = [];
 F_all = [];
@@ -22,7 +22,7 @@ opts.dim_k = 100;
 
 fprintf('lambda_1 = %f,lambda_2 = %f,dim_k = %f\n', opts.lambda_1,opts.lambda_2,opts.dim_k);
 
-for i = 1:1
+for i = 1:30
     fprintf('Clustering in %d-th iteration\n',i);
     S  = msc(X,opts);
     [NMI,ACC,F,AVG,P,RI]=clustering(abs(S)+abs(S'), numC, gt);
